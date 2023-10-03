@@ -24,3 +24,5 @@ export 'src/extensions/ex_brightness.dart';
 export 'src/extensions/ex_list.dart';
 export 'src/extensions/ex_widget.dart';
 export 'src/extensions/ex_text_style.dart';
+
+export 'package:caroby/src/values.dart';
