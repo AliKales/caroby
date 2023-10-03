@@ -1,7 +1,7 @@
-# dio
+# caroby
 
-[![Pub](https://img.shields.io/pub/v/dio.svg)](https://pub.dev/packages/caroby)
-[![Dev](https://img.shields.io/pub/v/dio.svg?label=dev&include_prereleases)](https://pub.dev/packages/caroby)
+[![Pub](https://img.shields.io/pub/v/caroby.svg)](https://pub.dev/packages/caroby)
+[![Dev](https://img.shields.io/pub/v/caroby.svg?label=dev&include_prereleases)](https://pub.dev/packages/caroby)
 
 A beautiful package for extensions, utils and uikit all together.
 I wanted to share what i use in my projects.
@@ -41,5 +41,10 @@ Add the `caroby` package to your
 
 
 ## Extensions
+
+You can check extensions by yourself
+
+
+## Utils
 
 You can check extensions by yourself
