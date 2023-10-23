@@ -96,18 +96,43 @@ final class Utils {
     return value == null || value.toLowerCase() == "null";
   }
 
-  static Future<void> changeFileLocation(
-    String newPath, {
-    String? path,
-    Uint8List? uint8list,
+  static Future<void> changeFileLocation({
+    required String from,
+    required String to,
   }) async {
-    if (path != null) {
-      File file = File(path);
+    List<String> values = to.split("/");
+    values.removeLast();
 
-      await file.rename(newPath);
-    } else {
-      await File(newPath).writeAsBytes(uint8list!);
+    final directory = values.join("/");
+
+    await Directory(directory).create(recursive: true);
+
+    await File(from).rename(to);
+  }
+
+  static Future<void> createDirectory(String path) async {
+    List<String> values = path.split("/");
+    if (values.last.contains(".")) {
+      values.removeLast();
     }
+
+    final directory = values.join("/");
+
+    await Directory(directory).create(recursive: true);
+  }
+
+  static String generateRandomId() {
+    const String validCharacters =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
+    final Random random = Random();
+    String randomId = "";
+
+    for (int i = 0; i < 12; i++) {
+      final int randomIndex = random.nextInt(validCharacters.length);
+      randomId += validCharacters[randomIndex];
+    }
+
+    return randomId;
   }
 
   static String formatBytesToMB(int bytes) {

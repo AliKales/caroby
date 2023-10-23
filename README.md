@@ -48,3 +48,7 @@ You can check extensions by yourself
 ## Utils
 
 You can check extensions by yourself
+
+## Values (static)
+
+You can check extensions by yourself

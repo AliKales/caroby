@@ -51,4 +51,16 @@ extension ContextExtension on BuildContext {
 
     return RelativeRect.fromLTRB(left, top, right, 0.0);
   }
+
+  ///[globalPaintBounds] returns position of context
+  Rect? get globalPaintBounds {
+    final renderObject = findRenderObject();
+    final translation = renderObject?.getTransformTo(null).getTranslation();
+    if (translation != null && renderObject?.paintBounds != null) {
+      final offset = Offset(translation.x, translation.y);
+      return renderObject!.paintBounds.shift(offset);
+    } else {
+      return null;
+    }
+  }
 }

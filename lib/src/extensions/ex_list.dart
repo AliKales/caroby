@@ -13,6 +13,16 @@ extension ListExtensionNull<E> on List<E>? {
     if (orElse != null) return orElse();
     return null;
   }
+
+  bool get isEmptyOrNull {
+    if (this == null || this!.isEmpty) return true;
+    return false;
+  }
+
+  bool get isNotEmptyAndNull {
+    if (this != null && this!.isNotEmpty) return true;
+    return false;
+  }
 }
 
 extension ListExtension<E> on List<E> {
