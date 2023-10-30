@@ -21,7 +21,9 @@ final class CustomProgressIndicator {
         pageBuilder: (_, __, ___) {
           return WillPopScope(
             onWillPop: () async => false,
-            child: const Center(child: CircularProgressIndicator.adaptive()),
+            child: const Center(
+              child: CircularProgressIndicator.adaptive(),
+            ),
           );
         });
   }

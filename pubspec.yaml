@@ -1,6 +1,6 @@
 name: caroby
 description: A beautiful package for extensions, utils and uikit all together.
-version: 0.0.5
+version: 0.0.6
 repository: https://github.com/AliKales/caroby
 
 platforms:
