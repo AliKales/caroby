@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 final class CustomBottomSheet {
   const CustomBottomSheet._();
 
-  static void showCustomModalBottomSheet(
+  static Future<T?> showCustomModalBottomSheet<T>(
     BuildContext context, {
     Color? backgroundColor,
     required Widget child,
-  }) {
-    showModalBottomSheet(
+  }) async {
+    return await showModalBottomSheet<T?>(
       context: context,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
