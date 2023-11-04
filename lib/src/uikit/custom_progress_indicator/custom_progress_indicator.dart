@@ -1,3 +1,4 @@
+import 'package:caroby/caroby.dart';
 import 'package:caroby/src/core/utils.dart';
 import 'package:caroby/src/extensions/ex_context.dart';
 import 'package:caroby/src/extensions/ex_num.dart';
@@ -30,7 +31,8 @@ final class CustomProgressIndicator {
 
   static Future showProgressIndicatorMessage(
     BuildContext context,
-    String text,
+    String? text,
+    Widget? child,
   ) async {
     if (!Utils.isCurrentRoute(context)) return;
 
@@ -44,7 +46,7 @@ final class CustomProgressIndicator {
       pageBuilder: (_, __, ___) {
         return WillPopScope(
           onWillPop: () async => false,
-          child: MessageView(text: text),
+          child: MessageView(text: text,child: child),
         );
       },
     );
