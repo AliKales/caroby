@@ -30,10 +30,10 @@ final class CustomProgressIndicator {
   }
 
   static Future showProgressIndicatorMessage(
-    BuildContext context,
+    BuildContext context, {
     String? text,
     Widget? child,
-  ) async {
+  }) async {
     if (!Utils.isCurrentRoute(context)) return;
 
     FocusScope.of(context).unfocus();
@@ -46,7 +46,7 @@ final class CustomProgressIndicator {
       pageBuilder: (_, __, ___) {
         return WillPopScope(
           onWillPop: () async => false,
-          child: MessageView(text: text,child: child),
+          child: MessageView(text: text, child: child),
         );
       },
     );
