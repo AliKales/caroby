@@ -1,3 +1,7 @@
+## 0.0.9
+
+- DateTime ago fix
+
 ## 0.0.8
 
 - CustomProgressIndicator bug fix

@@ -13,7 +13,9 @@ extension DateTimeExtension on DateTime {
   MAgo get ago {
     Duration d = DateTime.now().difference(this);
 
-    if (d.inSeconds < 60) {
+    if (d.inSeconds <= 0) {
+      return const MAgo(0, "now");
+    } else if (d.inSeconds < 60) {
       return MAgo(d.inSeconds, "second");
     } else if (d.inMinutes < 60) {
       return MAgo(d.inMinutes, "minute");
