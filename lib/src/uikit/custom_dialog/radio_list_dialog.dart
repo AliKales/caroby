@@ -27,22 +27,38 @@ class _RadioListDialogState extends State<_RadioListDialog> {
       actions: [OKButton(context, val: _selectedIndex)],
       content: SizedBox(
         height: 0.35.toDynamicHeight(context),
-        child: ListView.builder(
-          itemCount: widget.items.length,
-          itemBuilder: (context, index) {
-            String item = widget.items[index];
-            return ListTile(
-              title: Text(item),
-              onTap: () => _onTap(index),
-              splashColor: Colors.transparent,
-              leading: Radio<int>.adaptive(
-                value: index,
-                groupValue: _selectedIndex,
-                onChanged: _onTap,
-              ),
-            );
-          },
+        width: 0.7.toDynamicWidth(context),
+        child: ScrollbarTheme(
+          data: _scrollBarTheme(context),
+          child: Scrollbar(
+            thumbVisibility: true,
+            child: ListView.builder(
+              itemCount: widget.items.length,
+              itemBuilder: (context, index) {
+                String item = widget.items[index];
+                return ListTile(
+                  title: Text(item),
+                  onTap: () => _onTap(index),
+                  splashColor: Colors.transparent,
+                  leading: Radio<int>.adaptive(
+                    value: index,
+                    groupValue: _selectedIndex,
+                    onChanged: _onTap,
+                  ),
+                );
+              },
+            ),
+          ),
         ),
+      ),
+    );
+  }
+
+  ScrollbarThemeData _scrollBarTheme(BuildContext context) {
+    return ScrollbarThemeData(
+      radius: const Radius.circular(16),
+      thumbColor: MaterialStatePropertyAll(
+        context.colorScheme.primary.withOpacity(0.2),
       ),
     );
   }
