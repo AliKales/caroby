@@ -1,3 +1,7 @@
+## 0.1.0
+
+- DateTime toDate from milliseconds
+
 ## 0.0.9
 
 - DateTime ago fix

@@ -52,13 +52,8 @@ extension IntExtension on int {
     return Random().nextInt(max) + this;
   }
 
-  ///[toDate] converts microsecond to DateTime
-  DateTime toDate([bool isUtc = false]) {
-    return DateTime.fromMicrosecondsSinceEpoch(this, isUtc: isUtc);
-  }
-
-  ///[millisecsToDate] converts microsecond to DateTime
-  DateTime millisecsToDate([bool isUtc = false]) {
-    return DateTime.fromMillisecondsSinceEpoch(this, isUtc: isEven);
+  ///[toDate] converts millisecond to DateTime
+  DateTime toDate([bool isUtc = true]) {
+    return DateTime.fromMillisecondsSinceEpoch(this, isUtc: isUtc);
   }
 }
