@@ -1,3 +1,7 @@
+## 0.1.2
+
+- New extensions
+
 ## 0.1.1
 
 - Bug fix

@@ -1,4 +1,16 @@
+import 'package:caroby/src/extensions/ex_string.dart';
+
 extension ListExtensionNull<E> on List<E>? {
+  E? get firstOrNull {
+    if (isEmptyOrNull) return null;
+    return this!.first;
+  }
+
+  E? get lastOrNull {
+    if (isEmptyOrNull) return null;
+    return this!.last;
+  }
+
   int indexWhereNull(bool Function(E) test, [int start = 0]) {
     if (this == null) return -1;
 
@@ -44,5 +56,19 @@ extension ListExtension<E> on List<E> {
       end = length;
     }
     return sublist(start, end);
+  }
+}
+
+extension ExtListString on List<String>? {
+  List<String>? get capitalize {
+    return this?.map((e) => e.capitalize()).toList();
+  }
+
+  List<String>? get alphabetical {
+    if (this == null) return null;
+
+    this!.sort((a, b) => a.compareTo(b));
+
+    return this;
   }
 }

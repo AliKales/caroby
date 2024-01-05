@@ -56,4 +56,12 @@ extension IntExtension on int {
   DateTime toDate([bool isUtc = true]) {
     return DateTime.fromMillisecondsSinceEpoch(this, isUtc: isUtc);
   }
+
+  bool isMod(int num) {
+    return this % num == 0;
+  }
+
+  int get length {
+    return toString().length;
+  }
 }

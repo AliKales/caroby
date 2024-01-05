@@ -9,6 +9,29 @@ final class MAgo {
 }
 
 extension DateTimeExtension on DateTime {
+  bool isYesterday([bool isUtc = true]) {
+    var now = DateTime.now();
+    if (isUtc) {
+      now = now.toUtc();
+    }
+
+    now = now.subtract(const Duration(days: 1));
+
+    if (now.year == year && now.month == month && now.day == day) {
+      return true;
+    }
+
+    return false;
+  }
+
+  bool isSameDay([bool isUtc = true]) {
+    var now = DateTime.now();
+    if (isUtc) {
+      now = now.toUtc();
+    }
+    return now.toStringFromDate == toStringFromDate;
+  }
+
   ///[ago] calculates the difference between DateTime.now() and given DateTime
   MAgo get ago {
     Duration d = DateTime.now().difference(this);

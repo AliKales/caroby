@@ -1,4 +1,9 @@
 extension BoolExtension on bool? {
+  String? get string {
+    if (this == null) return null;
+    return toString();
+  }
+
   ///[isFalse] checks if bool is false
   ///if bool is false then returns true
   ///if bool is null then returns false
