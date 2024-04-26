@@ -43,8 +43,8 @@ extension ListExtension<E> on List<E> {
 
   E? get firstOrNull => (isEmpty) ? null : first;
 
-  E? get(int index) {
-    if (index < length) {
+  E? get(int? index) {
+    if (index != null && index < length) {
       return this[index];
     }
     return null;
