@@ -1,10 +1,13 @@
 part of 'custom_dialog.dart';
 
 class _RadioListDialog extends StatefulWidget {
-  const _RadioListDialog({super.key, this.title, required this.items});
+  const _RadioListDialog(
+      {super.key, this.title, required this.items, this.height, this.width});
 
   final String? title;
   final List<String> items;
+  final double? height;
+  final double? width;
 
   @override
   State<_RadioListDialog> createState() => _RadioListDialogState();
@@ -26,8 +29,8 @@ class _RadioListDialogState extends State<_RadioListDialog> {
       title: Text(widget.title ?? "").toEmpty(widget.title.isEmptyOrNull),
       actions: [OKButton(context, val: _selectedIndex)],
       content: SizedBox(
-        height: 0.35.toDynamicHeight(context),
-        width: 0.7.toDynamicWidth(context),
+        height: widget.height ?? 0.35.toDynamicHeight(context),
+        width: widget.width ?? 0.7.toDynamicWidth(context),
         child: ScrollbarTheme(
           data: _scrollBarTheme(context),
           child: Scrollbar(
