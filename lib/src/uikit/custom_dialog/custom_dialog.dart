@@ -68,6 +68,8 @@ final class CustomDialog {
     BuildContext context, {
     String? title,
     required List<String> items,
+    double? height,
+    double? width,
   }) async {
     int? response = await showDialog<int?>(
       context: context,
@@ -75,6 +77,8 @@ final class CustomDialog {
         return _RadioListDialog(
           title: title,
           items: items,
+          height: height,
+          width: width,
         );
       },
     );
