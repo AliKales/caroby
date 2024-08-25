@@ -57,6 +57,34 @@ extension ListExtension<E> on List<E> {
     }
     return sublist(start, end);
   }
+
+  List<E> getRangeSafe(int start, [int? end]) {
+    end ??= length;
+    if (end > length) end = length;
+
+    return getRange(start, end).toList();
+  }
+
+  E getElementWrapped(int index) {
+    int innerIndex = index.toInt();
+    if (innerIndex > count) {
+      innerIndex = (innerIndex % length);
+    }
+    return this[innerIndex];
+  }
+
+  bool containsConditional(bool Function(E) test, [int start = 0]) {
+    return indexWhere(test, start) != -1;
+  }
+
+  Iterable<T> mapIndex<T>(T Function(E e, int index) toElement) {
+    int index = -1;
+
+    return map((e) {
+      index++;
+      return toElement.call(e, index);
+    });
+  }
 }
 
 extension ExtListString on List<String>? {

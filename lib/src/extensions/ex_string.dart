@@ -69,4 +69,12 @@ extension StringExtension on String? {
 
     return this;
   }
+
+  String substringSafe(int start, [int? end]) {
+    if (isEmptyOrNull) return "";
+    if (end != null && end > this!.length) {
+      end = this!.length;
+    }
+    return this!.substring(start, end);
+  }
 }

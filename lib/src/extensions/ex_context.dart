@@ -63,4 +63,8 @@ extension ContextExtension on BuildContext {
       return null;
     }
   }
+  
+  bool get isKeyboardOpen {
+    return MediaQuery.of(this).viewInsets.bottom != 0;
+  }
 }
